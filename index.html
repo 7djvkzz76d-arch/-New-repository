@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>躲避！ Dodge V2</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#05070b">
 <style>
 *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#070b16;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 #app{position:relative;width:min(100vw,520px);height:100vh;margin:auto;overflow:hidden;background:radial-gradient(circle at 50% 18%,#243c72,#080b14 68%)}
@@ -80,4 +82,12 @@ draw(t);requestAnimationFrame(loop)}
 document.getElementById("play").onclick=play;document.getElementById("again").onclick=play;document.getElementById("homeBtn").onclick=()=>show("home");
 document.getElementById("shop").onclick=()=>{renderShop();show("shopScreen")};document.getElementById("back").onclick=()=>show("home");
 ui();draw(0);
-</script></body></html>
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
+</body></html>
